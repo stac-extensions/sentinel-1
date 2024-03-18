@@ -1,61 +1,50 @@
-# Template Extension Specification
+# Sentinel-1 Extension Specification
 
-- **Title:** Template
-- **Identifier:** <https://stac-extensions.github.io/template/v1.0.0/schema.json>
-- **Field Name Prefix:** template
+- **Title:** Sentinel-1
+- **Identifier:** <https://stac-extensions.github.io/sentinel-1/v1.0.0/schema.json>
+- **Field Name Prefix:** s1
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
-- **Owner**: @your-gh-handles @person2
+- **Owner**: @m-mohr
 
-This document explains the Template Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
-This is the place to add a short introduction.
+This document explains the Sentinel-1 Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
+
+The intention of the first version of the specification is to define the existing behavior of
+the properties prefixed with `s1` as created by the [stactools-sentinel1](https://github.com/stactools-packages/sentinel1)
+package and used by [Earth Search](https://earth-search.aws.element84.com/v1) and
+[Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/api/stac/v1). Future versions
+will aspire to standardize fields such as the numerous coverage calculations into separate extensions
+that are not specific to Sentinel-1.
 
 - Examples:
-  - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
-  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
-- [JSON Schema](json-schema/schema.json)
-- [Changelog](./CHANGELOG.md)
+  - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item (todo)
+  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection (todo)
+- [JSON Schema](json-schema/schema.json) (todo)
+- [Changelog](./CHANGELOG.md) (todo)
 
 ## Fields
 
 The fields in the table below can be used in these parts of STAC documents:
 
 - [ ] Catalogs
-- [x] Collections
+- [ ] Collections
 - [x] Item Properties (incl. Summaries in Collections)
-- [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
+- [ ] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name           | Type                      | Description                                  |
-| -------------------- | ------------------------- | -------------------------------------------- |
-| template:new_field   | string                    | **REQUIRED**. Describe the required field... |
-| template:xyz         | [XYZ Object](#xyz-object) | Describe the field...                        |
-| template:another_one | \[number]                 | Describe the field...                        |
-
-### Additional Field Information
-
-#### template:new_field
-
-This is a much more detailed description of the field `template:new_field`...
-
-### XYZ Object
-
-This is the introduction for the purpose and the content of the XYZ Object...
-
-| Field Name | Type   | Description                                  |
-| ---------- | ------ | -------------------------------------------- |
-| x          | number | **REQUIRED**. Describe the required field... |
-| y          | number | **REQUIRED**. Describe the required field... |
-| z          | number | **REQUIRED**. Describe the required field... |
-
-## Relation types
-
-The following types should be used as applicable `rel` types in the
-[Link Object](https://github.com/radiantearth/stac-spec/tree/master/item-spec/item-spec.md#link-object).
-
-| Type           | Description                           |
-| -------------- | ------------------------------------- |
-| fancy-rel-type | This link points to a fancy resource. |
+| Field Name                     | Type      | Description                                                  | From             |
+| ------------------------------ | --------- | ------------------------------------------------------------ | ---------------- |
+| s1:datatake_id                 | string    | e.g. `420895`                                                | Earth Search L1C |
+| s1:instrument_configuration_ID | string    | e.g. `7`                                                     | Earth Search L1C |
+| s1:orbit_source                | string    | e.g. `PREORB`                                                | Earth Search L1C |
+| s1:processing_datetime         | string    | RFC3339 datetime in UTC                                      | Earth Search L1C |
+| s1:processing_level            | string    | e.g. `1`                                                     | Earth Search L1C |
+| s1:product_identifier          | string    | e.g. `S1A_IW_GRDH_1SDV_20240318T153023_20240318T153035_053038_066C1F_F913` | Earth Search L1C |
+| s1:product_timeliness          | string    | e.g. `NRT-3h`                                                | Earth Search L1C |
+| s1:resolution                  | string    | e.g. `high`                                                  | Earth Search L1C |
+| s1:slice_number                | string    | e.g. `17`                                                    | Earth Search L1C |
+| s1:total_slices                | string    | e.g. `17`                                                    | Earth Search L1C |
+| s1:shape                       | [integer] | **DEPRECATED** Use proj:shape instead                        | Earth Search L1C |
 
 ## Contributing
 
