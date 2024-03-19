@@ -32,19 +32,19 @@ The fields in the table below can be used in these parts of STAC documents:
 - [ ] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name                     | Type      | Description                                                  | From             |
-| ------------------------------ | --------- | ------------------------------------------------------------ | ---------------- |
-| s1:datatake_id                 | string    | e.g. `420895`                                                | Earth Search L1C |
-| s1:instrument_configuration_ID | string    | e.g. `7`                                                     | Earth Search L1C |
-| s1:orbit_source                | string    | e.g. `PREORB`                                                | Earth Search L1C |
-| s1:processing_datetime         | string    | RFC3339 datetime in UTC                                      | Earth Search L1C |
-| s1:processing_level            | string    | e.g. `1`                                                     | Earth Search L1C |
-| s1:product_identifier          | string    | e.g. `S1A_IW_GRDH_1SDV_20240318T153023_20240318T153035_053038_066C1F_F913` | Earth Search L1C |
-| s1:product_timeliness          | string    | e.g. `NRT-3h`                                                | Earth Search L1C |
-| s1:resolution                  | string    | e.g. `high`                                                  | Earth Search L1C |
-| s1:slice_number                | string    | e.g. `17`                                                    | Earth Search L1C |
-| s1:total_slices                | string    | e.g. `17`                                                    | Earth Search L1C |
-| s1:shape                       | [integer] | **DEPRECATED** Use proj:shape instead                        | Earth Search L1C |
+| Field Name                     | Type      | Description                                                  |
+| ------------------------------ | --------- | ------------------------------------------------------------ |
+| s1:datatake_id                 | string    | e.g. `420895`                                                |
+| s1:instrument_configuration_ID | string    | e.g. `7`                                                     |
+| s1:orbit_source                | string    | e.g. `PREORB`                                                |
+| s1:processing_datetime         | string    | RFC3339 datetime in UTC                                      |
+| s1:processing_level            | string    | e.g. `1`                                                     |
+| s1:product_identifier          | string    | e.g. `S1A_IW_GRDH_1SDV_20240318T153023_20240318T153035_053038_066C1F_F913` |
+| s1:product_timeliness          | string    | e.g. `NRT-3h`, `Fast-24h`                                    |
+| s1:resolution                  | string    | e.g. `high`                                                  |
+| s1:slice_number                | string    | e.g. `17`                                                    |
+| s1:total_slices                | string    | e.g. `17`                                                    |
+| s1:shape                       | [integer] | **DEPRECATED** Use proj:shape instead                        |
 
 ## Contributing
 
