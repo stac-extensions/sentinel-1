@@ -1,7 +1,7 @@
 # Sentinel-1 Extension Specification
 
 - **Title:** Sentinel-1
-- **Identifier:** <https://stac-extensions.github.io/sentinel-1/v1.0.0/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/sentinel-1/v0.1.0/schema.json>
 - **Field Name Prefix:** s1
 - **Scope:** Item
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
