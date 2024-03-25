@@ -3,11 +3,12 @@
 - **Title:** Sentinel-1
 - **Identifier:** <https://stac-extensions.github.io/sentinel-1/v1.0.0/schema.json>
 - **Field Name Prefix:** s1
-- **Scope:** Item, Collection
+- **Scope:** Item
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
 - **Owner**: @m-mohr
 
-This document explains the Sentinel-1 Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
+This document explains the Sentinel-1 Extension to the
+[SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
 
 The intention of the first version of the specification is to define the existing behavior of
 the properties prefixed with `s1` as created by the [stactools-sentinel1](https://github.com/stactools-packages/sentinel1)
@@ -17,10 +18,11 @@ will aspire to standardize fields such as the numerous coverage calculations int
 that are not specific to Sentinel-1.
 
 - Examples:
-  - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item (todo)
-  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection (todo)
-- [JSON Schema](json-schema/schema.json) (todo)
-- [Changelog](./CHANGELOG.md) (todo)
+  - [Item: Microsoft Planetary Computer, Sentinel-1 GRD](examples/mspc-s1-grd.json)
+  - [Item: Microsoft Planetary Computer, Sentinel-1 RTC](examples/mspc-s1-rtc.json)
+  - [Item: Earth Search, Sentinel-1 GRD](examples/earthsearch-s1-grd.json)
+- [JSON Schema](json-schema/schema.json)
+- [Changelog](./CHANGELOG.md)
 
 ## Fields
 
@@ -38,12 +40,12 @@ The fields in the table below can be used in these parts of STAC documents:
 | s1:instrument_configuration_ID | string    | e.g. `7`                                                     |
 | s1:orbit_source                | string    | e.g. `PREORB`                                                |
 | s1:processing_datetime         | string    | RFC3339 datetime in UTC                                      |
-| s1:processing_level            | string    | e.g. `1`                                                     |
 | s1:product_identifier          | string    | e.g. `S1A_IW_GRDH_1SDV_20240318T153023_20240318T153035_053038_066C1F_F913` |
 | s1:product_timeliness          | string    | e.g. `NRT-3h`, `Fast-24h`                                    |
 | s1:resolution                  | string    | e.g. `high`                                                  |
 | s1:slice_number                | string    | e.g. `17`                                                    |
 | s1:total_slices                | string    | e.g. `17`                                                    |
+| s1:processing_level            | string    | **DEPRECATED** Use processing:level instead                  |
 | s1:shape                       | [integer] | **DEPRECATED** Use proj:shape instead                        |
 
 ## Contributing
