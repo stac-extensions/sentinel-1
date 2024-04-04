@@ -63,7 +63,6 @@
         {"required": ["s1:datatake_id"]},
         {"required": ["s1:instrument_configuration_ID"]},
         {"required": ["s1:orbit_source"]},
-        {"required": ["s1:processing_datetime"]},
         {"required": ["s1:product_identifier"]},
         {"required": ["s1:product_timeliness"]},
         {"required": ["s1:resolution"]},
