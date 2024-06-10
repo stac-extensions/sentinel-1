@@ -10,12 +10,13 @@
 This document explains the Sentinel-1 Extension to the
 [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
 
-The intention of the first version of the specification is to define the existing behavior of
-the properties prefixed with `s1` as created by the [stactools-sentinel1](https://github.com/stactools-packages/sentinel1)
-package and used by [Earth Search](https://earth-search.aws.element84.com/v1) and
-[Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/api/stac/v1). Future versions
-will aspire to standardize fields such as the numerous coverage calculations into separate extensions
-that are not specific to Sentinel-1.
+> \[!CAUTION]
+> The intention of the first version of the specification was to reflect the existing behavior of the properties
+> prefixed with `s1` as implemented by the [stactools-sentinel1](https://github.com/stactools-packages/sentinel1) package.
+> The following version deprecated most of the fields in favor of other extensions that are not specific to Sentinel-1.
+> The remaining fields are highly specific and usually not of interest of an average user.
+> As such implementors should only implement the fields that they think bring value to their users.
+> Many implementations may not need to implement this extension at all.
 
 - Examples:
   - [Item: Microsoft Planetary Computer, Sentinel-1 GRD](examples/mspc-s1-grd.json)
@@ -39,14 +40,17 @@ The fields in the table below can be used in these parts of STAC documents:
 | s1:datatake_id                 | string    | e.g. `420895`                                                |
 | s1:instrument_configuration_ID | string    | e.g. `7`                                                     |
 | s1:orbit_source                | string    | e.g. `PREORB`                                                |
-| s1:product_identifier          | string    | e.g. `S1A_IW_GRDH_1SDV_20240318T153023_20240318T153035_053038_066C1F_F913` |
-| s1:product_timeliness          | string    | e.g. `NRT-3h`, `Fast-24h`                                    |
-| s1:resolution                  | string    | e.g. `high`                                                  |
 | s1:slice_number                | string    | e.g. `17`                                                    |
 | s1:total_slices                | string    | e.g. `17`                                                    |
-| s1:processing_datetime         | string    | **DEPRECATED** Use processing:datetime instead               |
-| s1:processing_level            | string    | **DEPRECATED** Use processing:level instead                  |
-| s1:shape                       | [integer] | **DEPRECATED** Use proj:shape instead                        |
+| s1:resolution                  | string    | **DEPRECATED** Expose `gsd`, `spatial_resolution` (raster extension), and/or `sar:resolution_range` `sar:resolution_azimuth` (SAR extension) instead. The mapping is available in Table B.1 of the [Sentinel-1 documentation](https://sentinel.esa.int/documents/247904/349449/s1_sp-1322_1.pdf). |
+| s1:product_identifier          | string    | **DEPRECATED** Use Item `id` or link to source products instead (e.g. relation types `via` or `derived_from`) |
+| s1:product_timeliness          | string    | **DEPRECATED** Use `product:timeliness_category` and `product:timeliness` instead |
+| s1:processing_datetime         | string    | **DEPRECATED** Use `processing:datetime` instead             |
+| s1:processing_level            | string    | **DEPRECATED** Use `processing:level` instead                |
+| s1:shape                       | [integer] | **DEPRECATED** Use `proj:shape` instead                      |
+
+**s1:resolution:** Either `full` (Full Resolution - SM mode), `high` (High Resolution - SM, IW and EW mode),
+or `medium` (Medium Resolution - SM, IW, EW and WV modes)
 
 ## Contributing
 

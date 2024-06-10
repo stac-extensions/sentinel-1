@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 
 - `s1:processing_datetime` in favor of `processing:datetime`
+- `s1:product_timeliness` in favor of `product:timeliness_category` and `product:timeliness`
+- `s1:resolution` in favor of `gsd`, `spatial_resolution` (raster extension), and/or `sar:resolution_range` `sar:resolution_azimuth` (SAR extension)
+- `s1:product_identifier` in favor of `id` or links to source products (e.g. relation types `via` or `derived_from`)
 
 ### Removed
 
